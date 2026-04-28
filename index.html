@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Digital IT — Start Now</title>
+  <meta name="description" content="Digital IT — design, development and product engineering. Start now, we'll make it beautiful." />
+
+  <meta property="og:title" content="Digital IT — Start Now">
+  <meta property="og:description" content="We build clean, fast, scalable web products. Start now — we'll make it beautiful.">
+  <meta property="og:image" content="https://image.thum.io/get/width/1200/crop/630/https://digital-it-sigma.vercel.app/">
+  <meta property="og:url" content="https://digital-it-sigma.vercel.app/">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root{
+      --bg:#071428;--accent:#06b6d4;--muted:#94a3b8;--card:rgba(255,255,255,0.02);--white:#eef2ff;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#071028 0%, #071a2a 100%);
+      color:var(--white);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .wrap{max-width:1100px;margin:36px auto;padding:22px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:#04263a}
+    nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-size:14px}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:22px;margin-top:22px}
+    .card{background:var(--card);padding:22px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    h1{margin:0 0 8px 0;font-size:28px}
+    p.lead{color:var(--muted);margin:0 0 16px 0}
+    .cta{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{background:var(--accent);color:#04263a;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;display:inline-block;border:none;cursor:pointer;transition:opacity 0.2s}
+    .btn:hover{opacity:0.9}
+    .btn:disabled{opacity:0.5;cursor:not-allowed}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white)}
+    
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background-color: rgba(255, 255, 255, 0.03);
+      color: var(--white);
+      margin-top: 6px;
+      font-size: 14px;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    /* Исправление Select */
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+    }
+
+    select option {
+      background-color: #0b1e3b;
+      color: var(--white);
+    }
+
+    .error-msg { color: #f87171; font-size: 12px; margin-top: 4px; display: block; }
+    .success-msg { background: linear-gradient(90deg,#10b981,#06b6d4); padding: 10px; border-radius: 8px; color: #04263a; margin-top: 12px; display: none; }
+    
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">DI</div>
+        <div>
+          <div style="font-weight:700">Digital IT</div>
+          <div style="font-size:13px;color:var(--muted)">Design · Development · Product</div>
+        </div>
+      </div>
+      <nav>
+        <a href="https://digital-it-sigma.vercel.app/" target="_blank">Main site</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h1>Start now — we'll make it beautiful</h1>
+        <p class="lead">We build clean, fast, and scalable web products for startups and businesses.</p>
+        <div id="portfolio" class="portfolio" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px;">
+           <div style="border-radius:10px; overflow:hidden; background:#061226;">
+              <img src="https://image.thum.io/get/width/1280/crop/720/https://novabite-opal.vercel.app" style="width:100%; height:160px; object-fit:cover; display:block;">
+           </div>
+           <div style="border-radius:10px; overflow:hidden; background:#061226;">
+              <img src="https://image.thum.io/get/width/1280/crop/720/https://sto-red-beta.vercel.app" style="width:100%; height:160px; object-fit:cover; display:block;">
+           </div>
+        </div>
+      </div>
+
+      <aside class="card" id="contact">
+        <div class="form-title" style="font-weight:700; margin-bottom:8px;">Get a free quote</div>
+        
+        <div data-fs-success class="success-msg">Thanks! Your request has been sent successfully.</div>
+        <div data-fs-error class="error-msg" style="display:none; margin-bottom:10px;">Oops! Something went wrong.</div>
+
+        <form id="my-form">
+          <label style="display:block; color:var(--muted); font-size:13px; margin-top:10px;">Name</label>
+          <input name="name" type="text" placeholder="Your name" data-fs-field required>
+          <span data-fs-error="name" class="error-msg"></span>
+
+          <label style="display:block; color:var(--muted); font-size:13px; margin-top:10px;">Email</label>
+          <input name="email" type="email" placeholder="you@example.com" data-fs-field required>
+          <span data-fs-error="email" class="error-msg"></span>
+
+          <label style="display:block; color:var(--muted); font-size:13px; margin-top:10px;">Service</label>
+          <select name="service" data-fs-field>
+            <option value="Product design">Product design</option>
+            <option value="Web app development">Web app development</option>
+            <option value="API & integrations">API & integrations</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label style="display:block; color:var(--muted); font-size:13px; margin-top:10px;">Message</label>
+          <textarea name="message" placeholder="Brief description" data-fs-field style="min-height:110px;"></textarea>
+          <span data-fs-error="message" class="error-msg"></span>
+
+          <button type="submit" data-fs-submit-btn class="btn" style="margin-top:12px; width:100%">Send request</button>
+        </form>
+      </aside>
+    </section>
+  </div>
+
+  <script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { 
+      formElement: '#my-form', 
+      formId: 'xkokdowz' 
+    });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+</body>
+</html>
