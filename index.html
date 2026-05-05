@@ -28,12 +28,51 @@
       -moz-osx-font-smoothing:grayscale;
       line-height:1.45;
     }
-    .wrap{max-width:1100px;margin:36px auto;padding:22px}
-    header{display:flex;justify-content:space-between;align-items:center;gap:12px}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:#04263a}
-    nav a{color:#cbd5e1;text-decoration:none;margin-left:14px;font-size:14px;font-weight:600;transition:color .2s}
-    nav a:hover{color:var(--accent)}
+    .wrap{max-width:1100px;margin:36px auto;padding:22px 22px 28px}
+    .site-header{
+      display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+      gap:16px 24px;padding-bottom:20px;margin-bottom:2px;
+      border-bottom:1px solid rgba(148,163,184,.12);
+    }
+    .brand{display:flex;gap:12px;align-items:center;min-width:0}
+    .logo{
+      width:56px;height:56px;flex-shrink:0;border-radius:12px;
+      overflow:hidden;display:flex;align-items:center;justify-content:center;
+      box-shadow:0 4px 20px rgba(34,211,238,.25)
+    }
+    .logo img{width:100%;height:100%;object-fit:contain;display:block}
+    .site-nav{
+      display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:10px;
+    }
+    .nav-link{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 18px;border-radius:12px;font-size:13px;font-weight:600;letter-spacing:.02em;
+      color:#e8f0f8;text-decoration:none;white-space:nowrap;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(148,163,184,.28);
+      box-shadow:0 2px 14px rgba(2,6,23,.35), inset 0 1px 0 rgba(255,255,255,.06);
+      transition:transform .18s,border-color .18s,background .18s,box-shadow .18s,color .18s
+    }
+    .nav-link:hover{
+      color:#f8fafc;border-color:rgba(34,211,238,.55);background:rgba(34,211,238,.12);
+      box-shadow:0 4px 22px rgba(34,211,238,.18), inset 0 1px 0 rgba(255,255,255,.08);
+      transform:translateY(-2px)
+    }
+    .nav-link:active{transform:translateY(0)}
+    .nav-link:focus-visible{
+      outline:2px solid var(--accent);outline-offset:3px
+    }
+    .nav-link--primary{
+      background:linear-gradient(145deg,rgba(34,211,238,.35),rgba(56,189,248,.12));
+      border-color:rgba(34,211,238,.65);
+      color:#ecfeff;font-weight:700;
+      box-shadow:0 0 0 1px rgba(34,211,238,.25),0 4px 26px rgba(34,211,238,.35), inset 0 1px 0 rgba(255,255,255,.12)
+    }
+    .nav-link--primary:hover{
+      background:linear-gradient(145deg,rgba(34,211,238,.5),rgba(129,140,248,.15));
+      border-color:#67e8f9;color:#fff;
+      box-shadow:0 0 0 1px rgba(103,232,249,.4),0 8px 36px rgba(34,211,238,.4), inset 0 1px 0 rgba(255,255,255,.15)
+    }
     .hero{display:grid;grid-template-columns:1fr 380px;gap:22px;margin-top:22px}
     .card{background:var(--card);padding:22px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
     h1{margin:0 0 8px 0;font-size:28px}
@@ -101,23 +140,52 @@
     .error-msg{color:#f87171;font-size:12px;margin-top:4px;display:none}
 
     footer{margin-top:20px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-    @media (max-width:900px){.hero{grid-template-columns:1fr}.portfolio{grid-template-columns:1fr}}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .portfolio{grid-template-columns:1fr}
+      .wrap{margin:20px auto;padding:18px 18px 24px}
+      .site-header{padding-bottom:18px;gap:14px 18px}
+      .site-nav{justify-content:flex-start;width:100%}
+    }
+    @media (max-width:560px){
+      .wrap{margin:12px auto;padding:14px 14px 22px}
+      .site-header{
+        flex-direction:column;align-items:stretch;
+        gap:14px;padding-bottom:16px
+      }
+      .brand{align-items:flex-start}
+      .logo{width:52px;height:52px;border-radius:11px}
+      .site-nav{
+        display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%
+      }
+      .nav-link{
+        padding:12px 10px;font-size:12px;white-space:normal;text-align:center;line-height:1.25;
+        min-height:44px
+      }
+    }
+    @media (max-width:360px){
+      .site-nav{gap:6px}
+      .nav-link{padding:11px 7px;font-size:11px;letter-spacing:0}
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
+    <header class="site-header">
       <div class="brand">
-        <div class="logo">DI</div>
+        <div class="logo">
+          <img src="digital_it_icon_clean.png" alt="Digital IT" width="56" height="56" decoding="async" />
+        </div>
         <div>
-          <div style="font-weight:700">Digital IT</div>
-          <div style="font-size:13px;color:var(--muted)">Design · Development · Product</div>
+          <div style="font-weight:700;font-size:17px;line-height:1.2">Digital IT</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px;line-height:1.35">Design · Development · Product</div>
         </div>
       </div>
-      <nav>
-        <a href="https://digital-it-sigma.vercel.app/" target="_blank">Main site</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="https://digital-it-sigma.vercel.app/" target="_blank" rel="noopener noreferrer">Main site</a>
+        <a class="nav-link" href="#portfolio">Portfolio</a>
+        <a class="nav-link nav-link--primary" href="#contact">Contact</a>
       </nav>
     </header>
 
