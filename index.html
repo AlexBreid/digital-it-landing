@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Digital IT — Start Now</title>
   <meta name="description" content="Digital IT — design, development and product engineering. Start now, we'll make it beautiful." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='system-ui,sans-serif' font-size='26' font-weight='700' fill='%23041623'%3EDI%3C/text%3E%3C/svg%3E" />
 
   <meta property="og:title" content="Digital IT — Start Now">
   <meta property="og:description" content="We build clean, fast, scalable web products. Start now — we'll make it beautiful.">
@@ -14,14 +15,14 @@
 
   <style>
     :root{
-      --bg:#071428;--accent:#06b6d4;--muted:#94a3b8;--card:rgba(255,255,255,0.02);--white:#eef2ff;
+      --bg:#0a1628;--accent:#22d3ee;--accent-2:#38bdf8;--muted:#b8c5d9;--card:rgba(255,255,255,0.06);--white:#f8fafc;
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      background:linear-gradient(180deg,#071028 0%, #071a2a 100%);
+      background:linear-gradient(165deg,#0c1829 0%, #0f2744 42%, #0a1628 100%);
       color:var(--white);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
@@ -31,16 +32,28 @@
     header{display:flex;justify-content:space-between;align-items:center;gap:12px}
     .brand{display:flex;gap:12px;align-items:center}
     .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:#04263a}
-    nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-size:14px}
+    nav a{color:#cbd5e1;text-decoration:none;margin-left:14px;font-size:14px;font-weight:600;transition:color .2s}
+    nav a:hover{color:var(--accent)}
     .hero{display:grid;grid-template-columns:1fr 380px;gap:22px;margin-top:22px}
     .card{background:var(--card);padding:22px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
     h1{margin:0 0 8px 0;font-size:28px}
     p.lead{color:var(--muted);margin:0 0 16px 0}
     
-    .btn{background:var(--accent);color:#04263a;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;display:inline-block;border:none;cursor:pointer;transition:opacity 0.2s;text-align:center}
-    .btn:hover{opacity:0.9}
-    .btn:disabled{opacity:0.5;cursor:not-allowed}
-    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white)}
+    .cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .btn{
+      background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);
+      color:#04121f;padding:12px 22px;border-radius:12px;text-decoration:none;font-weight:700;display:inline-block;border:none;cursor:pointer;
+      box-shadow:0 0 0 1px rgba(34,211,238,.5),0 4px 24px rgba(34,211,238,.35),0 8px 40px rgba(56,189,248,.2);
+      transition:transform .18s, box-shadow .18s, filter .18s;text-align:center
+    }
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 0 0 1px rgba(34,211,238,.65),0 6px 28px rgba(34,211,238,.45),0 12px 48px rgba(56,189,248,.28)}
+    .btn:active{transform:translateY(0)}
+    .btn:disabled{opacity:0.5;cursor:not-allowed;box-shadow:none}
+    .btn.ghost{
+      background:rgba(255,255,255,.08);border:2px solid rgba(125,211,252,.55);color:#f0f9ff;font-weight:700;
+      box-shadow:0 0 20px rgba(125,211,252,.15);backdrop-filter:blur(8px)
+    }
+    .btn.ghost:hover{border-color:#7dd3fc;background:rgba(125,211,252,.18);box-shadow:0 0 28px rgba(125,211,252,.35)}
 
     /* Сетка портфолио */
     .portfolio{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
@@ -68,7 +81,22 @@
     select option{background-color:#0b1e3b;color:var(--white)}
     
     textarea{min-height:110px}
-    .success-msg{background:linear-gradient(90deg,#10b981,#06b6d4);padding:10px;border-radius:8px;color:#04263a;margin-top:12px;display:none}
+    .contact-us{margin-bottom:18px;padding:16px;border-radius:14px;background:linear-gradient(135deg,rgba(34,211,238,.12),rgba(168,85,247,.1));border:1px solid rgba(125,211,252,.28);box-shadow:0 8px 32px rgba(0,0,0,.2)}
+    .contact-us h3{margin:0 0 4px 0;font-size:17px;color:#f0f9ff}
+    .contact-us p{margin:0 0 14px 0;font-size:13px;color:#cbd5e1}
+    .contact-icons{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-start}
+    .contact-icon{
+      display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:#e2e8f0;font-size:12px;font-weight:600;
+      padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+      min-width:92px;transition:transform .18s,background .18s,border-color .18s,box-shadow .18s
+    }
+    .contact-icon:hover{transform:translateY(-3px);background:rgba(255,255,255,.12);border-color:rgba(34,211,238,.45);box-shadow:0 8px 28px rgba(34,211,238,.2)}
+    .contact-icon svg{width:36px;height:36px;display:block}
+    .contact-icon .ci-tg{color:#38bdf8}
+    .contact-icon .ci-wa{color:#4ade80}
+    .contact-icon .ci-mail{color:#fbbf24}
+
+    .success-msg{background:linear-gradient(90deg,#34d399,#22d3ee);padding:12px;border-radius:10px;color:#042018;font-weight:600;margin-top:12px;display:none;box-shadow:0 4px 20px rgba(52,211,153,.35)}
     .error-msg{color:#f87171;font-size:12px;margin-top:4px;display:none}
 
     footer{margin-top:20px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
@@ -139,6 +167,25 @@
       </div>
 
       <aside class="card" id="contact">
+        <div class="contact-us">
+          <h3>Contact us</h3>
+          <p>Reach out anytime — we reply fast.</p>
+          <div class="contact-icons">
+            <a class="contact-icon" href="https://t.me/digitalagencyy0" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+              <svg class="ci-tg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+              <span>Telegram</span>
+            </a>
+            <a class="contact-icon" href="https://wa.me/353899414745" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <svg class="ci-wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+            <a class="contact-icon" href="mailto:Digitalagencyy58@gmail.com" aria-label="Email">
+              <svg class="ci-mail" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <span>Email</span>
+            </a>
+          </div>
+        </div>
+
         <div class="form-title">Get a free quote</div>
         <div data-fs-success class="success-msg">Thanks! Your request has been sent successfully.</div>
         <div data-fs-error class="error-msg">Oops! Something went wrong.</div>
@@ -162,13 +209,8 @@
           <label>Message</label>
           <textarea name="message" placeholder="Brief description" data-fs-field></textarea>
 
-          <button type="submit" data-fs-submit-btn class="btn" style="margin-top:12px; width:100%">Send request</button>
+          <button type="submit" data-fs-submit-btn class="btn" style="margin-top:14px; width:100%">Send request</button>
         </form>
-
-        <div style="display:flex; gap:8px; margin-top:20px; flex-wrap:wrap">
-          <a href="https://t.me/digitalcodet" target="_blank" style="color:var(--muted); text-decoration:none; font-size:13px">TG @digitalcodet</a>
-          <a href="https://t.me/digitalagencyy0" target="_blank" style="color:var(--muted); text-decoration:none; font-size:13px">TG @digitalagencyy0</a>
-        </div>
       </aside>
     </section>
 
